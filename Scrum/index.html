@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quadro Scrum</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>SCRUM</h1>
+      <div class="template-selection">
+        <select id="template-select">
+          <option value="criar-template">Criar Novo Template</option>
+        </select>
+      </div>
+      <div class="user-area">
+        <span id="username">Usuário</span>
+        <button onclick="logout()">Sair</button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div class="welcome-text">
+        <h2>Bem-vindo ao Quadro Scrum</h2>
+        <p>Selecione ou crie um template para começar!</p>
+      </div>
+      <h2 id="template-title"></h2>
+      <div class="columns-container" id="columns-container">
+      </div>
+
+      <button id="delete-template-btn" style="display: none">
+        Deletar Template
+      </button>
+    </main>
+
+    <div id="create-template-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title">Criar Novo Template</h2>
+        <form id="create-template-form">
+          <label for="template-name">Nome do Template:</label>
+          <input
+            type="text"
+            id="template-name"
+            placeholder="Nome do Template"
+            required
+          />
+
+          <label for="num-columns">Número de Quadros:</label>
+          <input
+            type="number"
+            id="num-columns"
+            min="1"
+            max="10"
+            value="1"
+            required
+          />
+
+          <div id="columns-inputs">
+          </div>
+
+          <button type="submit">Salvar Template</button>
+        </form>
+      </div>
+    </div>
+
+
+    <div id="add-task-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeTaskModal()">&times;</span>
+        <h2>Adicionar Tarefa</h2>
+        <form id="add-task-form">
+          <input
+            type="text"
+            id="task-name"
+            placeholder="Nome da Tarefa"
+            required
+          />
+          <input type="hidden" id="current-column" />
+          <button type="submit">Adicionar Tarefa</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
