@@ -11,6 +11,7 @@
       <h1>SCRUM</h1>
       <div class="template-selection">
         <select id="template-select">
+          <option value="">Selecione um Template</option>
           <option value="criar-template">Criar Novo Template</option>
         </select>
       </div>
@@ -21,13 +22,12 @@
     </header>
 
     <main id="main-content">
-      <div class="welcome-text">
+      <div class="welcome-text" id="welcome-text">
         <h2>Bem-vindo ao Quadro Scrum</h2>
         <p>Selecione ou crie um template para começar!</p>
       </div>
       <h2 id="template-title"></h2>
-      <div class="columns-container" id="columns-container">
-      </div>
+      <div class="columns-container" id="columns-container"></div>
 
       <button id="delete-template-btn" style="display: none">
         Deletar Template
@@ -57,14 +57,12 @@
             required
           />
 
-          <div id="columns-inputs">
-          </div>
+          <div id="columns-inputs"></div>
 
           <button type="submit">Salvar Template</button>
         </form>
       </div>
     </div>
-
 
     <div id="add-task-modal" class="modal">
       <div class="modal-content">
@@ -80,6 +78,16 @@
           <input type="hidden" id="current-column" />
           <button type="submit">Adicionar Tarefa</button>
         </form>
+      </div>
+    </div>
+
+    <div id="delete-confirm-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeDeleteModal()">&times;</span>
+        <h2>Deletar Template</h2>
+        <p>Tem certeza que deseja deletar este template?</p>
+        <button id="confirm-delete-btn">Confirmar</button>
+        <button onclick="closeDeleteModal()">Cancelar</button>
       </div>
     </div>
 
